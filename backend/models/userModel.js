@@ -1,10 +1,9 @@
-//USER MODEL
+// USER MODEL
 import mongoose from "mongoose";
-import { stripLow } from "validator";
 
 const userSchema = new mongoose.Schema({
     name: {
-        type:String,
+        type: String,
         required: true
     },
     email: {
@@ -16,8 +15,8 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: true
     }
-
 });
 
-const userModel= mongoose.model.user || mongoose.model("user",userSchema);
+const userModel = mongoose.models.user || mongoose.model("user", userSchema);
+
 export default userModel;

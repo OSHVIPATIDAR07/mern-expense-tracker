@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useMemo } from 'react';
-import { useOutletContext } from 'react-router-dom';
+//import { useOutletContext } from 'react-router-dom';
 import axios from 'axios';
 import { 
   Wallet, ArrowDown, PiggyBank, BarChart2, TrendingUp, TrendingDown, 
@@ -17,6 +17,7 @@ import AddTransactionModal from '../components/AddTransactionalModal';
 
 const API_BASE = "http://localhost:4000/api";
 
+
 const getAuthHeader = () => {
   const token = localStorage.getItem('token') || localStorage.getItem('authToken');
   return token ? { Authorization: `Bearer ${token}` } : {};
@@ -26,9 +27,9 @@ const toClientISO = (dateStr) => {
   return new Date(dateStr).toISOString();
 };
 
-const DashboardPage = () => {
-  const { refreshTransactions } = useOutletContext();
-
+// const DashboardPage = () => {
+//   const { refreshTransactions } = useOutletContext();
+const DashboardPage = ({ refreshTransactions }) => {
   const [timeFrame, setTimeFrame] = useState('monthly');
   const [showModal, setShowModal] = useState(false);
   const [gauData, setGauData] = useState([]);
